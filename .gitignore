@@ -1,0 +1,5 @@
+.DS_Store
+migrations/.migrate
+node_modules
+
+.idea

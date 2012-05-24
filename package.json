@@ -1,0 +1,11 @@
+{
+    "name": "node-geo-ec2"
+  , "version": "0.0.1"
+  , "private": true
+  , "main": "app.js"
+  , "dependencies": {
+      "express": "2.5.8"
+    , "less": ">= 0.0.1"
+    , "jade": ">= 0.0.1"
+  }
+}
