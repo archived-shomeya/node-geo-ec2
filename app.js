@@ -31,8 +31,11 @@ app.configure('production', function(){
 
 app.get('/', routes.index);
 app.post('/api', routes.api_post);
-app.get('/api/:ip', routes.api_get);
+app.get('/api/:ip?', routes.api_get);
 
-app.listen(3000, function(){
+// Check PORT (from Heroku) before starting server
+var port = process.env.PORT || 3000;
+
+app.listen(port, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });

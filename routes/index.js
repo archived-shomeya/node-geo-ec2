@@ -14,7 +14,13 @@ exports.api_post = function(req, res){
 }
 
 exports.api_get = function(req, res){
-  var ip = req.params.ip;
+  var ip;
+  if (typeof(req.params.ip) == 'undefined') {
+    ip = req.connection.remoteAddress;
+  }
+  else {
+    ip = req.params.ip; 
+  }
   lookup.lookup(ip, res);
 }
 
