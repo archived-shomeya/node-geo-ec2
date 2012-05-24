@@ -5,7 +5,7 @@ var lookup = require('../lib/lookup')
  * GET home page.
  */
 
-var mp_client = new mixpanel.Client('ad1b46adcd30b5656d39ae2896f3053f');
+var mp_client = new mixpanel.Client(process.env.MP_TOKEN);
 
 exports.index = function(req, res){
   var client_ip;
