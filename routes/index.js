@@ -1,10 +1,4 @@
-var geoip = require('geoip-lite');
-
-var ip_lookup = function(ip, res) {
-  var result = geoip.lookup(ip);
-  res.send(result);
-}
-
+var lookup = require('../lib/lookup');
 
 /*
  * GET home page.
@@ -16,11 +10,11 @@ exports.index = function(req, res){
 
 exports.api_post = function(req, res){
   var ip = req.body.ip;
-  ip_lookup(ip, res);
+  lookup.lookup(ip, res);
 }
 
 exports.api_get = function(req, res){
   var ip = req.params.ip;
-  ip_lookup(ip, res);
+  lookup.lookup(ip, res);
 }
 
