@@ -1,2 +1,29 @@
-h1= title
-p Welcome to #{title}
+h1 Geo EC2: Find the closest EC2 region for a given IP address.
+
+h2 What it is
+p Welcome to Geo EC2, a service that provides a geo lookup for any IP and also provides the closest EC2 region to the location. This service is useful for matching users of your site or service to the EC2 region with the lowest latency to the user.
+
+h2 How to use the service
+p
+  | The API endpoint is 
+  code http://geo-ec2.shomeya.com/api
+
+p For example
+p
+ code curl http://geo-ec2.shomeya.com/api -d "ip=173.194.33.2"
+p would produce the following response:
+p
+  code {"country":"US","region":"CA","status":"success","ec2_region":"us-west-1","ip":"173.194.33.2"}
+  
+p In addition to the post method you can also use a URL parameter:
+p
+  code
+    a(href="http://geo-ec2.shomeya.com/api/173.194.33.2") http://geo-ec2.shomeya.com/api/173.194.33.2
+  |  
+  small
+    em (click to see result)
+p Finally, if you leave off the IP address, we'll use the client IP address.
+
+h2 How it works
+
+p This is a simple <a href="http://nodejs.org/">node.js</a> app built on <a href="http://expressjs.com/">Express</a> and hosted on <a href="http://www.heroku.com/">Heroku</a>. We use the <a href="https://github.com/bluesmoon/node-geoip">geoip-lite</a> module to interface with the <a href="http://maxmind.com/">Maxmind</a> GeoLite data, and we lookup the EC2 region with the data provided by the <a href="https://github.com/turnkeylinux/aws-datacenters">aws-datacenters</a> project by folks from <a href="http://www.turnkeylinux.org/">TurnKey Linux</a>.
