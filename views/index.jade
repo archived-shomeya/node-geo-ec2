@@ -5,7 +5,7 @@ p Welcome to Geo EC2, a service that provides a geo lookup for any IP and also p
 
 h2 How to use the service
 p
-  | The API endpoint is 
+  | The API endpoint is
   code http://geo-ec2.shomeya.com/api
 
 p For example
@@ -14,12 +14,12 @@ p
 p would produce the following response:
 p
   code {"country":"US","region":"CA","status":"success","ec2_region":"us-west-1","ip":"173.194.33.2"}
-  
+
 p In addition to the post method you can also use a URL parameter:
 p
   code
-    a(href="http://geo-ec2.shomeya.com/api/173.194.33.2") http://geo-ec2.shomeya.com/api/173.194.33.2
-  |  
+    a(href="/api/173.194.33.2") http://geo-ec2.shomeya.com/api/173.194.33.2
+  |
   small
     em (click to see result)
 p Finally, if you leave off the IP address, we'll use the client IP address.
